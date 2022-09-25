@@ -17,6 +17,6 @@
   "description": "School purpose",
   "main": "app.js",
   "scripts": {
-    "start-prod": "node app.js"
+    "start": "node app.js"
   }
 }
