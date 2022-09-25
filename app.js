@@ -1,18 +1,14 @@
-//server setup
-const express = require("express");
-const { join } = require("path");
-const fs = require('fs');
+import express from "express";
+import path from "path";
+
 const app = express();
 
-app.use(express.static("static"));
+app.use(express.static("public"))
 
-const indexPage = fs.readFileSync('./static/index.html', "utf-8");
-
-app.get("/", (request, response) => {
-    response.sendFile(indexPage);
+app.get("/", (req, res) => {
+    res.sendFile(path.resolve("./static/index.html"));
 });
 
-app.listen(8080, () => {
-    console.log("10100")
-});
-
+app.listen(process.env.PORT || 8080, () => {
+    console.log("8080")
+})
